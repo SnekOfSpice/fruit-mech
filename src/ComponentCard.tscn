@@ -1,0 +1,146 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://src/ComponentCard.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/card/cardboard_small.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/fruit/fruit0_frame0.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/raw/My_handwriting.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/fonts/raw/Mat Saleh.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/sprites/player/card_upgraded_frame0.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/player/card_upgraded_frame1.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/player/card_icon_rot.png" type="Texture" id=8]
+[ext_resource path="res://assets/fonts/custom/numbers.tres" type="DynamicFont" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 0.75
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 54
+use_filter = true
+extra_spacing_top = -21
+extra_spacing_bottom = -16
+font_data = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 105.11, 127.802 )
+
+[node name="ComponentCard" type="Control"]
+anchor_right = 0.106
+anchor_bottom = 0.158
+margin_right = 0.455994
+margin_bottom = 0.199997
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -2.52264, -24.386 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -16.0362 )
+frames = SubResource( 1 )
+playing = true
+centered = false
+
+[node name="FruitStats" type="VBoxContainer" parent="."]
+margin_right = 201.0
+margin_bottom = 257.0
+mouse_filter = 2
+custom_constants/separation = -12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopRow" type="HBoxContainer" parent="FruitStats"]
+margin_right = 217.0
+margin_bottom = 45.0
+custom_constants/separation = -2
+
+[node name="LabelName" type="Label" parent="FruitStats/TopRow"]
+margin_top = 8.0
+margin_right = 150.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 150, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "apple"
+
+[node name="TextureRect" type="TextureRect" parent="FruitStats/TopRow"]
+margin_left = 148.0
+margin_right = 180.0
+margin_bottom = 45.0
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="FruitStats/TopRow"]
+margin_left = 178.0
+margin_right = 217.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "12"
+align = 1
+
+[node name="FruitTexture" type="TextureRect" parent="FruitStats"]
+margin_top = 33.0
+margin_right = 217.0
+margin_bottom = 187.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="FruitStats2" type="HBoxContainer" parent="FruitStats"]
+margin_top = 175.0
+margin_right = 217.0
+margin_bottom = 175.0
+grow_vertical = 2
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="Label" parent="FruitStats"]
+visible = false
+margin_top = 230.0
+margin_right = 201.0
+margin_bottom = 269.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "hewwo
+aa"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 104.669, 128.106 )
+shape = SubResource( 4 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="DeleteTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
+[connection signal="timeout" from="DeleteTimer" to="." method="_on_DeleteTimer_timeout"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sprites/player/player_icon_current_armor.png" type="Texture" id=1]
+[ext_resource path="res://src/FloatingArmor.gd" type="Script" id=2]
+
+[node name="FloatingArmor" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]

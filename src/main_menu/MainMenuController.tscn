@@ -1,0 +1,293 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://src/main_menu/MainMenuController.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/ui/cardboard_button_small_hover.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/ui/cardboard_button_small_pressed.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/ui/cardboard_button_small.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/raw/Mat Saleh.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/sprites/bg/main_menu/bg_main_menu_bot_frame0.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/bg/main_menu/bg_main_menu_bot_frame1.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/bg/main_menu/bg_main_menu_bot_frame2.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/bg/main_menu/bg_main_menu_pilot.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/bg/main_menu/bg_main_menu_rocks2_fullsize.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/bg/main_menu/bg_main_menu_floor2_fullsize.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/bg/main_menu/bg_main_menu_sky2_fullsize.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/bg/main_menu/bg_main_menu_clouds2_fullsize.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/bg/main_menu/bg_main_menu_clocks_frame1.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/bg/main_menu/bg_main_menu_clocks_frame0.png" type="Texture" id=15]
+[ext_resource path="res://src/main_menu/TutorialController.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/main_menu/CreditsController.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/sprites/banner50_v2.png" type="Texture" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[node name="MainMenuController" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="TutorialController" parent="." instance=ExtResource( 16 )]
+visible = false
+margin_left = 270.0
+margin_top = 115.0
+margin_right = 270.0
+margin_bottom = 115.0
+
+[node name="CreditsController" parent="." instance=ExtResource( 17 )]
+visible = false
+margin_left = 270.0
+margin_top = 115.0
+margin_right = 270.0
+margin_bottom = 115.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 1.4, 1.4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="MainMenuControls" type="Control" parent="Camera2D/CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeSlider" type="HSlider" parent="Camera2D/CanvasLayer/MainMenuControls"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 811.544
+margin_top = 38.1637
+margin_right = 1196.54
+margin_bottom = 54.1637
+min_value = -80.0
+max_value = 15.0
+value = -10.0
+rounded = true
+scrollable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/MainMenuControls/VolumeSlider"]
+margin_left = 189.302
+margin_top = 20.1298
+margin_right = 384.302
+margin_bottom = 48.1298
+custom_fonts/font = SubResource( 1 )
+text = "VOLUME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenButton" type="TextureButton" parent="Camera2D/CanvasLayer/MainMenuControls"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 953.34
+margin_top = 110.001
+margin_right = 1176.34
+margin_bottom = 189.001
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/MainMenuControls/FullscreenButton"]
+margin_left = 12.7136
+margin_top = 20.1298
+margin_right = 207.714
+margin_bottom = 48.1298
+custom_fonts/font = SubResource( 1 )
+text = "FULLSCREEN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButtons" type="VBoxContainer" parent="Camera2D/CanvasLayer/MainMenuControls"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 77.3625
+margin_top = 288.0
+margin_right = 300.362
+margin_bottom = 450.0
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="TextureButton" parent="Camera2D/CanvasLayer/MainMenuControls/MenuButtons"]
+margin_right = 223.0
+margin_bottom = 79.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/MainMenuControls/MenuButtons/StartButton"]
+margin_left = 21.6226
+margin_top = 20.576
+margin_right = 216.623
+margin_bottom = 48.576
+custom_fonts/font = SubResource( 1 )
+text = "START GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialButton" type="TextureButton" parent="Camera2D/CanvasLayer/MainMenuControls/MenuButtons"]
+margin_top = 83.0
+margin_right = 223.0
+margin_bottom = 162.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/MainMenuControls/MenuButtons/TutorialButton"]
+margin_left = 21.6226
+margin_top = 20.576
+margin_right = 216.623
+margin_bottom = 48.576
+custom_fonts/font = SubResource( 1 )
+text = "TUTORIAL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsButton" type="TextureButton" parent="Camera2D/CanvasLayer/MainMenuControls/MenuButtons"]
+margin_top = 166.0
+margin_right = 223.0
+margin_bottom = 245.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/MainMenuControls/MenuButtons/CreditsButton"]
+margin_left = 21.6226
+margin_top = 20.576
+margin_right = 216.623
+margin_bottom = 48.576
+custom_fonts/font = SubResource( 1 )
+text = "CREDITS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="TextureButton" parent="Camera2D/CanvasLayer/MainMenuControls/MenuButtons"]
+margin_top = 249.0
+margin_right = 223.0
+margin_bottom = 328.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/MainMenuControls/MenuButtons/QuitButton"]
+margin_left = 22.0342
+margin_top = 18.5106
+margin_right = 217.034
+margin_bottom = 46.5106
+custom_fonts/font = SubResource( 1 )
+text = "QUIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="SkyLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 3508, 2800 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/SkyLayer"]
+texture = ExtResource( 12 )
+centered = false
+
+[node name="RocksLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 3508, 0 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/RocksLayer"]
+position = Vector2( 0, -1009.08 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="FloorLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 3508, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/FloorLayer"]
+position = Vector2( 0, -1012.98 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="CloudsLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1.2, 1.2 )
+motion_mirroring = Vector2( 3508, 2800 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/CloudsLayer"]
+texture = ExtResource( 13 )
+centered = false
+
+[node name="BannerLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.8, 0.8 )
+
+[node name="banner" type="Sprite" parent="ParallaxBackground/BannerLayer"]
+position = Vector2( 215.993, 171.538 )
+texture = ExtResource( 18 )
+
+[node name="ClocksLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="AnimatedSprite" parent="ParallaxBackground/ClocksLayer"]
+frames = SubResource( 2 )
+frame = 1
+playing = true
+centered = false
+
+[node name="SwagbotLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/SwagbotLayer"]
+frames = SubResource( 3 )
+frame = 2
+playing = true
+centered = false
+
+[node name="PilotLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.98, 0.98 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/PilotLayer"]
+texture = ExtResource( 9 )
+centered = false
+
+[connection signal="value_changed" from="Camera2D/CanvasLayer/MainMenuControls/VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/MainMenuControls/FullscreenButton" to="." method="_on_FullscreenButton_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/MainMenuControls/MenuButtons/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/MainMenuControls/MenuButtons/TutorialButton" to="." method="_on_TutorialButton_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/MainMenuControls/MenuButtons/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/MainMenuControls/MenuButtons/QuitButton" to="." method="_on_QuitButton_pressed"]

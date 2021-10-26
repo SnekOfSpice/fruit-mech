@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bensound-brazilsamba.mp3-a97465d89e49811831e70b543208d249.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/bensound-brazilsamba.mp3"
+dest_files=[ "res://.import/bensound-brazilsamba.mp3-a97465d89e49811831e70b543208d249.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

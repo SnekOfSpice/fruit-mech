@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/273864__beskhu__metallic-bottle-prc-3.wav-1a16299aae6d0f0e12ad7de985864656.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/enemy_actions/273864__beskhu__metallic-bottle-prc-3.wav"
+dest_files=[ "res://.import/273864__beskhu__metallic-bottle-prc-3.wav-1a16299aae6d0f0e12ad7de985864656.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

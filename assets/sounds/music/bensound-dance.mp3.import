@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bensound-dance.mp3-522ffb1f20758cda2ee6574b0121b739.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/bensound-dance.mp3"
+dest_files=[ "res://.import/bensound-dance.mp3-522ffb1f20758cda2ee6574b0121b739.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

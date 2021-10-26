@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/367666__rutgermuller__sfx-thrilling-build-up-3-made-at-paradise-air.wav-1ad28bce49db18eeba6aab864a4037b9.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/player_actions/367666__rutgermuller__sfx-thrilling-build-up-3-made-at-paradise-air.wav"
+dest_files=[ "res://.import/367666__rutgermuller__sfx-thrilling-build-up-3-made-at-paradise-air.wav-1ad28bce49db18eeba6aab864a4037b9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

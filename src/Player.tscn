@@ -1,0 +1,161 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://src/ComponentSlot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/player/player_sprite_frame1.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/player/player_sprite_frame0.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/player/player_sprite_frame2.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/raw/Mat Saleh.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/sprites/player/player_icon_current_hp.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/player/player_icon_current_armor.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/player/status_headshot50_frame1.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/player/status_headshot25_frame0.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/player/status_headshot100_frame0.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/player/status_headshot75_frame0.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/player/status_headshot100_frame1.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/player/status_headshot75_frame1.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/player/status_headshot50_frame0.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/player/status_headshot25_frame1.png" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 6 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "stat75",
+"speed": 1.5
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "stat25",
+"speed": 1.5
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "stat50",
+"speed": 1.5
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "stat100",
+"speed": 1.5
+} ]
+
+[node name="Player" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+playing = true
+centered = false
+
+[node name="ComponentSlot" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200.429, 361.744 )
+
+[node name="ComponentSlot2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 463.679, 366.212 )
+
+[node name="ComponentSlot3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 686.838, 172.621 )
+
+[node name="UseComponentTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 520.431
+margin_top = 74.9533
+margin_right = 560.431
+margin_bottom = 88.9533
+text = "HP:0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+margin_left = 523.259
+margin_top = 100.03
+margin_right = 563.259
+margin_bottom = 114.03
+text = "ar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FloatingNumberPos" type="Position2D" parent="."]
+position = Vector2( 418.607, 206.475 )
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="ComponentStepTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="StatsBox" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBox" type="HBoxContainer" parent="StatsBox"]
+margin_right = 164.0
+margin_bottom = 96.0
+
+[node name="TextureRect" type="TextureRect" parent="StatsBox/HealthBox"]
+margin_right = 96.0
+margin_bottom = 96.0
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="StatsBox/HealthBox"]
+margin_left = 100.0
+margin_top = 11.0
+margin_right = 164.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.941176, 0.188235, 0.517647, 1 )
+text = "10"
+
+[node name="ArmorBox" type="HBoxContainer" parent="StatsBox"]
+margin_left = 168.0
+margin_right = 332.0
+margin_bottom = 96.0
+
+[node name="TextureRect" type="TextureRect" parent="StatsBox/ArmorBox"]
+margin_right = 96.0
+margin_bottom = 96.0
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="StatsBox/ArmorBox"]
+margin_left = 100.0
+margin_top = 11.0
+margin_right = 164.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.184314, 0.454902, 0.45098, 1 )
+text = "10"
+
+[node name="FlickerTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="StatusSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -1.5874, 66.6708 )
+frames = SubResource( 3 )
+animation = "stat100"
+frame = 1
+playing = true
+centered = false

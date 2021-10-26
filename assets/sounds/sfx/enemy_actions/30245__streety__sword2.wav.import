@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/30245__streety__sword2.wav-35a22c86d314603b342a2f9966b896c6.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/enemy_actions/30245__streety__sword2.wav"
+dest_files=[ "res://.import/30245__streety__sword2.wav-35a22c86d314603b342a2f9966b896c6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

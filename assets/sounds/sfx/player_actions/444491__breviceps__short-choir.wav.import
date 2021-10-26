@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/444491__breviceps__short-choir.wav-940a902ed26820c205a11661e3ef05eb.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/player_actions/444491__breviceps__short-choir.wav"
+dest_files=[ "res://.import/444491__breviceps__short-choir.wav-940a902ed26820c205a11661e3ef05eb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/555060__magnuswaker__charge-up.wav-1fd9efc40e7b97e6b020e10ef02ba1ba.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/enemy_actions/555060__magnuswaker__charge-up.wav"
+dest_files=[ "res://.import/555060__magnuswaker__charge-up.wav-1fd9efc40e7b97e6b020e10ef02ba1ba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

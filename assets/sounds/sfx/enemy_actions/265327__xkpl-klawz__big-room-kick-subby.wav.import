@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/265327__xkpl-klawz__big-room-kick-subby.wav-6f26c014c1e9d7829b7b260a84dbfe7e.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/enemy_actions/265327__xkpl-klawz__big-room-kick-subby.wav"
+dest_files=[ "res://.import/265327__xkpl-klawz__big-room-kick-subby.wav-6f26c014c1e9d7829b7b260a84dbfe7e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

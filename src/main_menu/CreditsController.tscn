@@ -1,0 +1,166 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/sprites/ui/bg_tutorial.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/custom/popup_heading.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/custom/popup_text.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/sprites/ui/close_button_normal.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/ui/close_button_pressed.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/ui/close_button_hover.png" type="Texture" id=6]
+[ext_resource path="res://src/main_menu/CreditsController.gd" type="Script" id=7]
+
+[node name="CreditsController" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.074
+anchor_top = 0.118
+anchor_right = 0.803
+anchor_bottom = 1.021
+margin_left = 0.599998
+margin_top = -0.200005
+margin_right = 0.199951
+margin_bottom = 0.0999756
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 1102.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 2 )
+custom_constants/shadow_as_outline = 0
+text = "CREDITS"
+
+[node name="Snek" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 59.0
+margin_right = 1102.0
+margin_bottom = 196.0
+custom_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer/Snek"]
+margin_top = 35.0
+margin_right = 362.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 362, 67 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Snek
+Twitter: SnekOfSpice"
+
+[node name="Label2" type="Label" parent="VBoxContainer/Snek"]
+margin_left = 402.0
+margin_right = 1102.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 700, 0 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Game Design
+Programming
+Art / Animation
+Putting everything together"
+autowrap = true
+
+[node name="Bensound" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 226.0
+margin_right = 1102.0
+margin_bottom = 293.0
+custom_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer/Bensound"]
+margin_right = 362.0
+margin_bottom = 67.0
+rect_min_size = Vector2( 362, 67 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Bensound.com"
+
+[node name="Label2" type="Label" parent="VBoxContainer/Bensound"]
+margin_left = 402.0
+margin_top = 17.0
+margin_right = 1102.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 700, 0 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "All the music"
+autowrap = true
+
+[node name="Freesound" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 323.0
+margin_right = 1102.0
+margin_bottom = 495.0
+custom_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer/Freesound"]
+margin_top = 52.0
+margin_right = 362.0
+margin_bottom = 119.0
+rect_min_size = Vector2( 362, 67 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Freesound.org"
+
+[node name="Label2" type="Label" parent="VBoxContainer/Freesound"]
+margin_left = 402.0
+margin_right = 1102.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 700, 0 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "All the sound effects:
+Under CC0: Most of them
+Attribution Liscence:
+https://freesound.org/people/Setuniman/sounds/168606/"
+autowrap = true
+
+[node name="Fonts" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 525.0
+margin_right = 1102.0
+margin_bottom = 697.0
+custom_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer/Fonts"]
+margin_top = 52.0
+margin_right = 362.0
+margin_bottom = 119.0
+rect_min_size = Vector2( 362, 67 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Dafont.com"
+
+[node name="Label2" type="Label" parent="VBoxContainer/Fonts"]
+margin_left = 402.0
+margin_right = 1102.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 700, 0 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Mat Saleh by Khurasan
+My Handwriting by Michelle Pha
+Wahroonga by junkohanhero
+My Unprofessional Handwriting by Anika Tovernic"
+autowrap = true
+
+[node name="CloseButton" type="TextureButton" parent="."]
+margin_left = 1169.65
+margin_top = 74.1624
+margin_right = 1294.65
+margin_bottom = 199.162
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_CloseButton_pressed"]

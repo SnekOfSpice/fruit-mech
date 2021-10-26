@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bensound-allthat.mp3-606def7ac620280baa8aae907d7386d7.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/bensound-allthat.mp3"
+dest_files=[ "res://.import/bensound-allthat.mp3-606def7ac620280baa8aae907d7386d7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

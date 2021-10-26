@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/205753__scorpion67890__surge-leech-1.wav-4d72e3eb08d9482dc60a741020215deb.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/enemy_actions/205753__scorpion67890__surge-leech-1.wav"
+dest_files=[ "res://.import/205753__scorpion67890__surge-leech-1.wav-4d72e3eb08d9482dc60a741020215deb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

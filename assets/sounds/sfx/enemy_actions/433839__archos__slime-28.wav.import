@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/433839__archos__slime-28.wav-9be42d3463c9a4f2bf583543a65def4c.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/enemy_actions/433839__archos__slime-28.wav"
+dest_files=[ "res://.import/433839__archos__slime-28.wav-9be42d3463c9a4f2bf583543a65def4c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

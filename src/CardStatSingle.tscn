@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/custom/numbers.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/CardStatSingle.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/player/card_icon_armor.png" type="Texture" id=3]
+
+[node name="CardStatSingle" type="VBoxContainer"]
+anchor_right = 0.02
+anchor_bottom = 0.131
+margin_right = -7.62939e-06
+margin_bottom = -37.9
+mouse_filter = 2
+custom_constants/separation = -4
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 32.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+align = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = 41.0
+margin_right = 32.0
+margin_bottom = 73.0
+mouse_filter = 2
+texture = ExtResource( 3 )

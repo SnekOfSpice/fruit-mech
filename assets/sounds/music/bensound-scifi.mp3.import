@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bensound-scifi.mp3-c36caba314320dfa40ad56740f0fbf18.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/bensound-scifi.mp3"
+dest_files=[ "res://.import/bensound-scifi.mp3-c36caba314320dfa40ad56740f0fbf18.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

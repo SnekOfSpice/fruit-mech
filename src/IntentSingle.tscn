@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/sprites/enemy/intent_buff.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/raw/Mat Saleh.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/IntentSingle.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 31
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="IntentSingle" type="VBoxContainer"]
+anchor_right = 0.233
+anchor_bottom = 0.269
+margin_right = -207.8
+margin_bottom = -0.100021
+alignment = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = 77.0
+margin_right = 165.0
+margin_bottom = 132.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+margin_top = 136.0
+margin_right = 165.0
+margin_bottom = 165.0
+custom_fonts/font = SubResource( 1 )
+text = "Buff"
+align = 1
