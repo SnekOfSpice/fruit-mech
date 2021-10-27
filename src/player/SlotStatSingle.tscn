@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/fonts/raw/My_handwriting.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/sprites/player/slot_icon_armor.png" type="Texture" id=2]
-[ext_resource path="res://src/SlotStatSingle.gd" type="Script" id=3]
+[ext_resource path="res://src/player/SlotStatSingle.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/player/slot_icon_armor.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
@@ -16,13 +16,13 @@ anchor_bottom = 0.082
 margin_right = 0.599998
 margin_bottom = 0.199997
 mouse_filter = 2
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 72.0
 margin_bottom = 74.0
 mouse_filter = 2
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="."]

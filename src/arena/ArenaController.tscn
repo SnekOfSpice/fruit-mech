@@ -1,10 +1,10 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://src/ArenaController.gd" type="Script" id=1]
-[ext_resource path="res://src/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/arena/ArenaController.gd" type="Script" id=1]
+[ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/ui/cardboard_button_small.png" type="Texture" id=3]
 [ext_resource path="res://src/Enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/ArenaBackground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/arena/ArenaBackground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/sprites/bg/floor_extended.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/bg/bg_front.png" type="Texture" id=7]
 [ext_resource path="res://assets/fonts/raw/Mat Saleh.ttf" type="DynamicFontData" id=8]
@@ -19,6 +19,8 @@
 [ext_resource path="res://assets/white_square.png" type="Texture" id=17]
 [ext_resource path="res://assets/sprites/ui/cardboard_button_small_hover.png" type="Texture" id=18]
 [ext_resource path="res://assets/sprites/ui/cardboard_button_small_pressed.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/ui/close_button_pressed.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/ui/close_button_normal.png" type="Texture" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -97,15 +99,15 @@ texture = ExtResource( 6 )
 wait_time = 0.6
 one_shot = true
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxForeground" type="ParallaxBackground" parent="."]
 layer = 0
 scroll_ignore_camera_zoom = true
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxForeground"]
 position = Vector2( -130.813, -28.541 )
 motion_mirroring = Vector2( 2300, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite" type="Sprite" parent="ParallaxForeground/ParallaxLayer"]
 position = Vector2( -716.873, 179.567 )
 texture = ExtResource( 7 )
 centered = false
@@ -141,17 +143,20 @@ position = Vector2( 871.514, 427.646 )
 current = true
 zoom = Vector2( 1.25, 1.25 )
 
-[node name="TextureButton" type="TextureButton" parent="Camera2D" groups=[
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D"]
+margin_left = 471.937
+margin_top = 139.693
+margin_right = 694.937
+margin_bottom = 218.693
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EndTurnButton" type="TextureButton" parent="Camera2D/HBoxContainer" groups=[
 "PlayerTurnActiveOnly",
 ]]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 550.781
-margin_top = 57.1484
-margin_right = 773.781
-margin_bottom = 136.148
+margin_right = 223.0
+margin_bottom = 125.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 19 )
 texture_hover = ExtResource( 18 )
@@ -159,7 +164,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Camera2D/TextureButton"]
+[node name="Label" type="Label" parent="Camera2D/HBoxContainer/EndTurnButton"]
 margin_left = 12.7136
 margin_top = 20.1298
 margin_right = 207.714
@@ -169,6 +174,13 @@ text = "END TURN"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FFButton" type="TextureButton" parent="Camera2D/HBoxContainer"]
+margin_left = 227.0
+margin_right = 352.0
+margin_bottom = 125.0
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 21 )
 
 [node name="KillCountLabel" type="Label" parent="Camera2D"]
 anchor_left = 0.5
@@ -187,6 +199,7 @@ __meta__ = {
 }
 
 [node name="PauseContainer" type="Control" parent="Camera2D"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -289,6 +302,7 @@ __meta__ = {
 }
 
 [node name="GameOverContainer" type="Control" parent="Camera2D"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -393,6 +407,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DeckListButton" type="TextureButton" parent="Camera2D"]
+margin_left = -757.264
+margin_top = 290.433
+margin_right = -632.264
+margin_bottom = 415.433
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="EventStepTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
@@ -401,7 +426,8 @@ one_shot = true
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 
-[connection signal="pressed" from="Camera2D/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Camera2D/HBoxContainer/EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
+[connection signal="pressed" from="Camera2D/HBoxContainer/FFButton" to="." method="_on_FFButton_pressed"]
 [connection signal="button_down" from="Camera2D/PauseContainer/BackButton" to="." method="_on_BackButton_button_down"]
 [connection signal="pressed" from="Camera2D/PauseContainer/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="button_down" from="Camera2D/PauseContainer/MainMenuButton" to="." method="_on_MainMenuButton_button_down"]
@@ -411,4 +437,5 @@ one_shot = true
 [connection signal="pressed" from="Camera2D/GameOverContainer/HBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
 [connection signal="button_down" from="Camera2D/GameOverContainer/HBoxContainer/RestartButton" to="." method="_on_RestartButton_button_down"]
 [connection signal="pressed" from="Camera2D/GameOverContainer/HBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="Camera2D/DeckListButton" to="." method="_on_DeckListButton_pressed"]
 [connection signal="finished" from="MusicPlayer" to="." method="_on_MusicPlayer_finished"]

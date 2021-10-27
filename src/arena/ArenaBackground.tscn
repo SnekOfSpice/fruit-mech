@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/sprites/bg/bg_clouds.png" type="Texture" id=1]
-[ext_resource path="res://src/ArenaBackground.gd" type="Script" id=2]
+[ext_resource path="res://src/arena/ArenaBackground.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/bg/bg_mirrored_rotate_big_greyscale.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/bg/bg_far_Wide.png" type="Texture" id=4]
 

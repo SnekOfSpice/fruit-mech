@@ -9,7 +9,7 @@ onready var slot_sprite = $SlotSprite
 onready var sprite_upgrade = $SpriteUpgrade
 onready var stats_box = $StatsBox
 
-var slot_stat_single = preload("res://src/SlotStatSingle.tscn")
+var slot_stat_single = preload("res://src/player/SlotStatSingle.tscn")
 
 func set_component_card(value: ComponentCard):
 	component_card = value

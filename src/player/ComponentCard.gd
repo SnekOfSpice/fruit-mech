@@ -36,8 +36,8 @@ var component_hovering_over = null
 var hovered_over_slots = []
 
 # fancy display
-var card_stat_single = preload("res://src/CardStatSingle.tscn")
-var floating_stat = preload("res://src/FloatingStat.tscn")
+var card_stat_single = preload("res://src/player/CardStatSingle.tscn")
+var floating_stat = preload("res://src/player/FloatingStat.tscn")
 onready var fruit_stat_container = $FruitStats/FruitStats2
 onready var fruit_name_label = $FruitStats/TopRow/LabelName
 onready var fruit_tex = $FruitStats/FruitTexture

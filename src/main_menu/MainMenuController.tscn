@@ -266,7 +266,6 @@ texture = ExtResource( 18 )
 
 [node name="Sprite" type="AnimatedSprite" parent="ParallaxBackground/ClocksLayer"]
 frames = SubResource( 2 )
-frame = 1
 playing = true
 centered = false
 
@@ -274,7 +273,7 @@ centered = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/SwagbotLayer"]
 frames = SubResource( 3 )
-frame = 2
+frame = 1
 playing = true
 centered = false
 

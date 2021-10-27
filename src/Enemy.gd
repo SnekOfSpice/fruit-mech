@@ -23,9 +23,9 @@ onready var armor_label = $StatsBox/StatsBox/ArmorBox/Label
 onready var armor_box = $StatsBox/StatsBox/ArmorBox
 onready var name_label = $StatsBox/Label
 
-var floating_number = preload("res://src/FloatingNumber.tscn")
-var intent_single = preload("res://src/IntentSingle.tscn")
-var floating_armor = preload("res://src/FloatingArmor.tscn")
+var floating_number = preload("res://src/player/FloatingNumber.tscn")
+var intent_single = preload("res://src/arena/IntentSingle.tscn")
+var floating_armor = preload("res://src/player/FloatingArmor.tscn")
 
 signal enemy_has_attacked
 signal attack

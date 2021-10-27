@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "ComponentCard",
 "language": "GDScript",
-"path": "res://src/ComponentCard.gd"
+"path": "res://src/player/ComponentCard.gd"
 }, {
 "base": "Node2D",
 "class": "ComponentSlot",
 "language": "GDScript",
-"path": "res://src/ComponentSlot.gd"
+"path": "res://src/player/ComponentSlot.gd"
 }, {
 "base": "Node2D",
 "class": "Enemy",
@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "VBoxContainer",
 "class": "IntentSingle",
 "language": "GDScript",
-"path": "res://src/IntentSingle.gd"
+"path": "res://src/arena/IntentSingle.gd"
 } ]
 _global_script_class_icons={
 "ComponentCard": "",

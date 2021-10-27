@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/fonts/raw/My_Unprofessional_Handwriting.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://src/FloatingStat.gd" type="Script" id=2]
+[ext_resource path="res://src/player/FloatingStat.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/player/slot_icon_armor.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]

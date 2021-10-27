@@ -7,9 +7,9 @@ const ARMOR_DAMAGE_REDUCTION = 0.5
 var current_hp = MAX_HP
 var current_armor = 0
 
-var floating_number = preload("res://src/FloatingNumber.tscn")
-var floating_stat = preload("res://src/FloatingStat.tscn")
-var floating_armor = preload("res://src/FloatingArmor.tscn")
+var floating_number = preload("res://src/player/FloatingNumber.tscn")
+var floating_stat = preload("res://src/player/FloatingStat.tscn")
+var floating_armor = preload("res://src/player/FloatingArmor.tscn")
 
 onready var use_component_timer = $UseComponentTimer
 onready var sfx_player = $SFXPlayer

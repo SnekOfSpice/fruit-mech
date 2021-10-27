@@ -6,7 +6,7 @@ const HAND_LEFT_MARGIN = 100
 const HAND_SIZE_LIMIT = 5
 const ENTROPY_STAGES = [5, 8, 15]
 
-var component_card = preload("res://src/ComponentCard.tscn")
+var component_card = preload("res://src/player/ComponentCard.tscn")
 
 var current_enemy: Enemy = null
 
@@ -26,6 +26,7 @@ onready var entropy_label = $EntropyEventContainer/Label
 onready var entropy_sprite = $EntropyEventContainer/AnimatedSprite
 onready var entropy_timer = $EventStepTimer
 onready var pause_container = $Camera2D/PauseContainer
+onready var ff_button = $Camera2D/HBoxContainer/FFButton
 
 onready var sfx_player = $SFXPlayer
 onready var game_over_kill_count_label = $Camera2D/GameOverContainer/VBoxContainer/KillCount
@@ -395,6 +396,11 @@ func toggle_card_visibility(value: bool):
 	for card in cards_in_hand:
 		card.visible = value
 
+
+func show_deck_list():
+	pass
+
+
 func game_over():
 	game_over_container.visible = true
 	game_over_kill_count_label.text = str("KILL COUNT: ", kill_count)
@@ -408,9 +414,7 @@ func game_over():
 	sfx_player.play(0.0)
 
 
-func _on_TextureButton_pressed() -> void:
-	if StateData.current_state == StateData.States.PlayerTurnActive:
-		end_player_turn()
+
 
 
 func _on_MusicPlayer_finished() -> void:
@@ -457,3 +461,23 @@ func _on_VolumeSlider_value_changed(value: float) -> void:
 	AudioData.db_level = value
 	$MusicPlayer.volume_db = value
 	sfx_player.volume_db = value
+
+
+func _on_EndTurnButton_pressed() -> void:
+	if StateData.current_state == StateData.States.PlayerTurnActive:
+		end_player_turn()
+
+
+func _on_FFButton_pressed() -> void:
+	StateData.fast_forward_enabled = !StateData.fast_forward_enabled
+	var ff = StateData.fast_forward_enabled
+	var ff_true = "res://assets/sprites/ui/close_button_normal.png"
+	var ff_false = "res://assets/sprites/ui/close_button_hover.png"
+	if ff:
+		ff_button.texture_normal = load(ff_true)
+	else:
+		ff_button.texture_hover = load(ff_false)
+
+
+func _on_DeckListButton_pressed() -> void:
+	show_deck_list()

@@ -4,6 +4,7 @@ extends Node
 enum States {PlayerTurnActive, PlayerTurnPassive, EnemyTurn, GameOver}
 
 var current_state = 0
+var fast_forward_enabled = false
 
 func set_current_state(value: int):
 	current_state = value

@@ -1,18 +1,18 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://src/ComponentCard.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/card/cardboard_small.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/fruit/fruit0_frame0.png" type="Texture" id=3]
-[ext_resource path="res://assets/fonts/raw/My_handwriting.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://assets/fonts/raw/Mat Saleh.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/fonts/raw/Mat Saleh.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/raw/My_handwriting.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/player/ComponentCard.gd" type="Script" id=3]
+[ext_resource path="res://assets/sprites/card/cardboard_small.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/player/card_upgraded_frame1.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/player/card_upgraded_frame0.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/player/card_upgraded_frame1.png" type="Texture" id=7]
-[ext_resource path="res://assets/sprites/player/card_icon_rot.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/player/card_icon_rot.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/fruit/fruit0_frame0.png" type="Texture" id=8]
 [ext_resource path="res://assets/fonts/custom/numbers.tres" type="DynamicFont" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 0.75
@@ -21,14 +21,14 @@ animations = [ {
 [sub_resource type="DynamicFont" id=2]
 size = 30
 use_filter = true
-font_data = ExtResource( 5 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 54
 use_filter = true
 extra_spacing_top = -21
 extra_spacing_bottom = -16
-font_data = ExtResource( 4 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 105.11, 127.802 )
@@ -39,14 +39,14 @@ anchor_bottom = 0.158
 margin_right = 0.455994
 margin_bottom = 0.199997
 mouse_filter = 2
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -2.52264, -24.386 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 centered = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -82,7 +82,7 @@ text = "apple"
 margin_left = 148.0
 margin_right = 180.0
 margin_bottom = 45.0
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="FruitStats/TopRow"]
@@ -99,7 +99,7 @@ margin_top = 33.0
 margin_right = 217.0
 margin_bottom = 187.0
 mouse_filter = 2
-texture = ExtResource( 3 )
+texture = ExtResource( 8 )
 stretch_mode = 4
 
 [node name="FruitStats2" type="HBoxContainer" parent="FruitStats"]

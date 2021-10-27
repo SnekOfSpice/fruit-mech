@@ -1,31 +1,31 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://src/ComponentSlot.gd" type="Script" id=1]
-[ext_resource path="res://src/FruitSprite.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/sprites/player/slot_empty_frame0.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/player/slot_icon_upgrade.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/player/slot_use_frame1.png" type="Texture" id=5]
+[ext_resource path="res://src/player/ComponentSlot.gd" type="Script" id=1]
+[ext_resource path="res://src/player/FruitSprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sprites/player/slot_full_frame0.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/player/slot_full_frame1.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/player/slot_empty_frame0.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/player/slot_use_frame0.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/player/slot_empty_frame1.png" type="Texture" id=7]
-[ext_resource path="res://assets/sprites/player/slot_full_frame1.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/player/slot_full_frame0.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/player/slot_use_frame1.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/player/slot_icon_upgrade.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 66.3702
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "empty",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "use",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "full",
 "speed": 1.0
@@ -58,7 +58,7 @@ __meta__ = {
 [node name="SpriteUpgrade" type="Sprite" parent="."]
 visible = false
 position = Vector2( 98.9092, -51.105 )
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="StatsBox" type="VBoxContainer" parent="."]
 margin_left = 74.9653
