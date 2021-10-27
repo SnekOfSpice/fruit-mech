@@ -4,6 +4,7 @@ var fruit_data = {}
 var enemy_data = {}
 var enemy_action_data = {}
 var entropy_data = {}
+var deck_lists = {}
 
 func _ready() -> void:
 	var data_file = File.new()
@@ -15,3 +16,23 @@ func _ready() -> void:
 	enemy_data = data_json.get("enemies")
 	enemy_action_data = data_json.get("enemy_actions")
 	entropy_data = data_json.get("entropy_events")
+	deck_lists = data_json.get("deck_lists")
+	
+	# make deck list into an array of ints
+	#print(deck_lists)
+	var i = 0
+	for d in deck_lists:
+		var list_item = deck_lists.get(d)
+		var raw_list = list_item.get("list_content")
+		var conv_list = raw_list.split(",")
+		conv_list = Array(conv_list)
+		var list_size = conv_list.size()
+		for index in range(list_size):
+			conv_list[index] = int(conv_list[index])
+		deck_lists[d]["list_content"] = conv_list
+		i += 1
+	#print(deck_lists)
+	# placeholder
+	
+	PlayerData.set_player_deck_list(deck_lists.get("0").get("list_content"))
+	print(PlayerData.player_deck_list)
