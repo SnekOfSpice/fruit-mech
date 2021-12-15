@@ -9,6 +9,8 @@ var player_deck_list = []
 # upgrade level is self-explanatory
 # card_location denotes where the card currently is: in the player's Hand, Deck, Mech, or in stasis by an Enemy, or removed entirely
 
+var event_deck_list = []
+
 # takes in an array of ints and adds all the needed info
 func set_player_deck_list(fruit_ids: Array):
 	player_deck_list.clear()

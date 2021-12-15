@@ -50,7 +50,7 @@ func _on_VolumeSlider_value_changed(value: float) -> void:
 
 
 func _on_StartButton_pressed() -> void:
-	get_tree().change_scene("res://src/ArenaController.tscn")
+	get_tree().change_scene("res://src/arena/ArenaController.tscn")
 
 func _on_QuitButton_pressed() -> void:
 	get_tree().quit()

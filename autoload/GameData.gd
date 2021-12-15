@@ -1,5 +1,12 @@
 extends Node
 
+enum EventTypes{
+	Combat,
+	Boss,
+	Entropy,
+	NormalEvent
+}
+
 var fruit_data = {}
 var enemy_data = {}
 var enemy_action_data = {}

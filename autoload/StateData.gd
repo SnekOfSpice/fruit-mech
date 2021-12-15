@@ -1,7 +1,7 @@
 extends Node
 
 
-enum States {PlayerTurnActive, PlayerTurnPassive, EnemyTurn, GameOver}
+enum States {PlayerTurnActive, PlayerTurnPassive, EnemyTurn, GameOver, SelectingEvent}
 
 var current_state = 0
 var fast_forward_enabled = false
