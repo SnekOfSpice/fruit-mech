@@ -116,9 +116,9 @@ __meta__ = {
 
 [node name="Stats" type="Label" parent="FruitStats"]
 visible = false
-margin_top = 230.0
-margin_right = 201.0
-margin_bottom = 269.0
+margin_top = 163.0
+margin_right = 217.0
+margin_bottom = 202.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "hewwo

@@ -15,5 +15,5 @@ var event_deck_list = []
 func set_player_deck_list(fruit_ids: Array):
 	player_deck_list.clear()
 	for i in fruit_ids:
-		var card_data = {"fruit_id": i, "upgrade_level": 0, "card_location": CardLocations.Deck}
+		var card_data = {"fruit_id": i, "upgrade_level": 5, "card_location": CardLocations.Deck}
 		player_deck_list.append(card_data)

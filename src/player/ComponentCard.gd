@@ -83,8 +83,8 @@ func set_fruit_id(value: int):
 	fruit_heal_upgrade = fruit_data.get("fruit_heal_upgrade")
 	fruit_armor_upgrade = fruit_data.get("fruit_armor_upgrade")
 	
-	
-	call_deferred("attempt_upgrade")
+	# gamejam legacy
+	# call_deferred("attempt_upgrade")
 	
 	update_stats_label()
 	fruit_tex.texture = load(str("res://assets/sprites/fruit/fruit", fruit_id, "_frame0.png"))
@@ -121,7 +121,16 @@ func attempt_upgrade():
 
 func set_is_upgraded(value: bool):
 	is_upgraded = value
+
+func upgrade_to_level(level: int):
+	# idk do we need this? just in case for now bc of legacy reasons lmao
+	#set_is_upgraded(level > 0)
 	
+	# tracking variable to apply any n upgrades
+	var upgrade_iteration = 0
+	while upgrade_iteration < level:
+		_upgrade_stats()
+		upgrade_iteration += 1
 
 func set_is_picked(value: bool):
 	is_picked = value
@@ -208,7 +217,7 @@ func update_stats_label():
 		new_stat.set_value(fruit_heal)
 		new_stat.set_type("heal")
 	
-	$AnimatedSprite.visible = is_upgraded
+	#$AnimatedSprite.visible = is_upgraded
 
 func discard_card(): # from hand
 	# signal arena that this card is getting discarded
