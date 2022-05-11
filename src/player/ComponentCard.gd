@@ -48,6 +48,7 @@ signal remove_card_from_hand
 
 func _ready() -> void:
 	set_fruit_id(1)
+	upgrade_to_level(5)
 
 func _process(delta: float) -> void:
 	if is_picked:
@@ -85,8 +86,9 @@ func set_fruit_id(value: int):
 	
 	# gamejam legacy
 	# call_deferred("attempt_upgrade")
+	#update_stats_label()
 	
-	update_stats_label()
+	
 	fruit_tex.texture = load(str("res://assets/sprites/fruit/fruit", fruit_id, "_frame0.png"))
 	
 
@@ -109,18 +111,18 @@ func set_current_rot(value: int):
 		
 		
 
-func attempt_upgrade():
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	var roll = rng.randf_range(0.0, 1.0)
-	if roll < fruit_upgrade_chance:
-		#print("upgrade")
-		_upgrade_stats()
-	#print(roll)
+#func attempt_upgrade():
+#	var rng = RandomNumberGenerator.new()
+#	rng.randomize()
+#	var roll = rng.randf_range(0.0, 1.0)
+#	if roll < fruit_upgrade_chance:
+#		#print("upgrade")
+#		_upgrade_stats()
+#	#print(roll)
 	
 
-func set_is_upgraded(value: bool):
-	is_upgraded = value
+#func set_is_upgraded(value: bool):
+#	is_upgraded = value
 
 func upgrade_to_level(level: int):
 	# idk do we need this? just in case for now bc of legacy reasons lmao
@@ -129,8 +131,12 @@ func upgrade_to_level(level: int):
 	# tracking variable to apply any n upgrades
 	var upgrade_iteration = 0
 	while upgrade_iteration < level:
-		_upgrade_stats()
 		upgrade_iteration += 1
+		# for some reason, the fruit sprite slides to the right if we update the visual label on every level
+		# so the _upgrade_stats func gets a bool arg to update the label or not
+		# and we only update the level on the last upgrade
+		_upgrade_stats(upgrade_iteration == level)
+		
 
 func set_is_picked(value: bool):
 	is_picked = value
@@ -165,7 +171,7 @@ func set_card_origin(value: Vector2):
 	card_origin = value
 	rect_global_position = card_origin
 
-func _upgrade_stats():
+func _upgrade_stats(update_stats_label: bool):
 	current_rot += fruit_starting_rot_upgrade
 	fruit_attack += fruit_attack_upgrade
 	fruit_heal += fruit_heal_upgrade
@@ -176,8 +182,9 @@ func _upgrade_stats():
 #		"upgr heal ", fruit_heal_upgrade, "\n",
 #		"upgr armor ", fruit_armor_upgrade, "\n"
 #	))
-	set_is_upgraded(true)
-	call_deferred("update_stats_label")
+	#set_is_upgraded(true)
+	if update_stats_label:
+		call_deferred("update_stats_label")
 
 func update_stats_label():
 	fruit_name_label.text = str(fruit_name)

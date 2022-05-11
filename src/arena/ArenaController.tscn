@@ -407,17 +407,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DeckListButton" type="TextureButton" parent="Camera2D"]
-margin_left = -757.264
-margin_top = 290.433
-margin_right = -632.264
-margin_bottom = 415.433
-texture_normal = ExtResource( 21 )
-texture_pressed = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="EventStepTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
@@ -437,5 +426,4 @@ one_shot = true
 [connection signal="pressed" from="Camera2D/GameOverContainer/HBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
 [connection signal="button_down" from="Camera2D/GameOverContainer/HBoxContainer/RestartButton" to="." method="_on_RestartButton_button_down"]
 [connection signal="pressed" from="Camera2D/GameOverContainer/HBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
-[connection signal="pressed" from="Camera2D/DeckListButton" to="." method="_on_DeckListButton_pressed"]
 [connection signal="finished" from="MusicPlayer" to="." method="_on_MusicPlayer_finished"]

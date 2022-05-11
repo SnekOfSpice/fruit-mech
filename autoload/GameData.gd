@@ -7,11 +7,15 @@ enum EventTypes{
 	NormalEvent
 }
 
+
+# NOTE: This is still from the game jam
+# I think none of it is relevant for the new gameloop apart from fruit_data perhaps?
+
 var fruit_data = {}
 var enemy_data = {}
 var enemy_action_data = {}
 var entropy_data = {}
-var deck_lists = {}
+var deck_lists = {} 
 
 func _ready() -> void:
 	var data_file = File.new()

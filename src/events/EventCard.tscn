@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/sprites/card/cardboard_small.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/fruit/fruit0_frame0.png" type="Texture" id=2]
@@ -18,13 +18,11 @@ extra_spacing_top = -3
 extra_spacing_bottom = -9
 font_data = ExtResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 105.11, 127.802 )
-
 [node name="EventCard" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_pivot_offset = Vector2( -27.6153, -40.9988 )
+anchor_right = 0.169
+anchor_bottom = 0.424
+margin_right = -0.320023
+margin_bottom = -0.280029
 mouse_filter = 2
 script = ExtResource( 5 )
 __meta__ = {
@@ -34,13 +32,20 @@ __meta__ = {
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -2.52264, -24.386 )
 texture = ExtResource( 1 )
 centered = false
 
+[node name="SelectButton" type="TextureButton" parent="."]
+margin_right = 208.0
+margin_bottom = 302.0
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="EventStats" type="VBoxContainer" parent="."]
-margin_right = 201.0
-margin_bottom = 257.0
+margin_right = 217.0
+margin_bottom = 258.0
 mouse_filter = 2
 custom_constants/separation = -12
 __meta__ = {
@@ -50,6 +55,7 @@ __meta__ = {
 [node name="TopRow" type="HBoxContainer" parent="EventStats"]
 margin_right = 217.0
 margin_bottom = 28.0
+mouse_filter = 2
 custom_constants/separation = -2
 
 [node name="LabelName" type="Label" parent="EventStats/TopRow"]
@@ -73,16 +79,9 @@ margin_top = 158.0
 margin_right = 217.0
 margin_bottom = 258.0
 rect_min_size = Vector2( 217, 100 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "you will now die uwu"
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 104.669, 128.106 )
-shape = SubResource( 3 )
-
-[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
+[connection signal="button_up" from="SelectButton" to="." method="_on_SelectButton_button_up"]

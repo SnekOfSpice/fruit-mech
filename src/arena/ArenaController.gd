@@ -397,9 +397,6 @@ func toggle_card_visibility(value: bool):
 		card.visible = value
 
 
-func show_deck_list():
-	pass
-
 
 func game_over():
 	game_over_container.visible = true
@@ -479,5 +476,3 @@ func _on_FFButton_pressed() -> void:
 		ff_button.texture_hover = load(ff_false)
 
 
-func _on_DeckListButton_pressed() -> void:
-	show_deck_list()
